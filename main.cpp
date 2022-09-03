@@ -68,16 +68,19 @@ int main()
             case 'c':
             {
                 string input;
+
                 cout << "Enter the name of the herb you would like to search: ";
                 getline(cin, input);
-                
+                cout << endl;
+
                 try{
-                list.search(input);
+                (list.search(input))->display();
                 }
                 catch(...)
                 {
                     cerr << "Error occured during search" << endl;
                 }
+
                 break;
             }
             case 'd':
