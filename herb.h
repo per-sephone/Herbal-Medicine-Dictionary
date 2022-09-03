@@ -28,6 +28,14 @@ class Herb
         bool operator<=(const Herb& h) const;
         bool operator==(const Herb& h) const;
         bool operator!=(const Herb& h) const;
+
+        bool operator>(const string& str) const;
+        bool operator>=(const string& str) const;
+        bool operator<(const string& str) const;
+        bool operator<=(const string& str) const;
+        bool operator==(const string& str) const;
+        bool operator!=(const string& str) const;
+
         friend ostream& operator<<(ostream& out, const Herb& herb);
         
         void addNew(const string n, const int d, const string u, 

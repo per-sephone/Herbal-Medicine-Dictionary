@@ -77,6 +77,55 @@ bool Herb::operator!=(const Herb& h) const
         return false;
 }
 
+bool Herb::operator>(const string& str) const
+{
+    if(name > str)
+        return true;
+    else
+        return false;
+}
+
+bool Herb::operator>=(const string& str) const
+{
+    if(name >= str)
+        return true;
+    else
+        return false;
+}
+
+bool Herb::operator<(const string& str) const
+{
+    if(name < str)
+        return true;
+    else
+        return false;
+}
+
+bool Herb::operator<=(const string& str) const
+{
+    if(name <= str)
+        return true;
+    else
+        return false;
+}
+
+bool Herb::operator==(const string& str) const
+{
+    if(name == str)
+        return true;
+    else
+        return false;
+}
+
+bool Herb::operator!=(const string& str) const
+{
+    if(name != str)
+        return true;
+    else
+        return false;
+}
+
+
 ostream& operator<<(ostream& out, const Herb& herb)
 {
     cout << "Herb name: " << herb.name << endl;
