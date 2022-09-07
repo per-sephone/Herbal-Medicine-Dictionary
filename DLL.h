@@ -32,6 +32,7 @@ class DLL
         shared_ptr<Node<TYPE>> search(const TYPE& target);
         shared_ptr<Node<TYPE>> search(const string& target);
         void display(void);
+        shared_ptr<Node<TYPE>> getHead();
 
 
     protected:

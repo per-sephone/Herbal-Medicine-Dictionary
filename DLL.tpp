@@ -379,4 +379,11 @@ void DLL<TYPE>::display(shared_ptr<Node<TYPE>>& head)
      display(head->getNext());
 }
 
+//get head pointer of the list
+template<typename TYPE>
+shared_ptr<Node<TYPE>> DLL<TYPE>::getHead()
+{
+    return head;
+}
+
 #endif

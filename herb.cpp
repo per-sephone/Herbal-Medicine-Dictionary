@@ -128,11 +128,8 @@ bool Herb::operator!=(const string& str) const
 
 ostream& operator<<(ostream& out, const Herb& herb)
 {
-    cout << "Herb name: " << herb.name << endl;
-    cout << "Dosage: " << herb.dosage << " milligrams" << endl;
-    cout << "Uses: " << herb.uses << endl;
-    cout << "Precautions/Contraindications: " << herb.precautions << endl;
-    cout << "Preparations: " << herb.preparations << endl;
+    out << herb.name << ";" << herb.dosage << ";" << herb.uses << 
+        ";" << herb.precautions << ";" << herb.preparations;
     return out;
 }
 
@@ -203,8 +200,9 @@ void Herb::newPreparation()
     preparations = input;
 }
 
-void Herb::display()
+void Herb::display() const
 {
+    cout << endl << endl;
     cout << "Herb name: " << name << endl;
     cout << "Dosage: " << dosage << " milligrams" << endl;
     cout << "Uses: " << uses << endl;

@@ -126,7 +126,10 @@ bool Node<TYPE>::getData(TYPE& get) const
 template<typename TYPE>
 bool Node<TYPE>::display(void) const
 {
-    cout << data << endl;
+    //cout << data << endl;
+
+    data.display();
+
     return true;
 }
 

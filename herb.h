@@ -47,7 +47,7 @@ class Herb
         void newPrecaution();
         void newPreparation();
 
-        void display();
+        void display() const;
 };
 
 
