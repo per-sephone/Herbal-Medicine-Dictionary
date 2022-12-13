@@ -114,7 +114,6 @@ void save(DLL<Herb>& list)
 
     while(current)
     {
-        //Herb temp = current->getData();
         out << current->getData() << endl;
         current = current->getNext();
     }
@@ -139,10 +138,6 @@ void loadList(string file, DLL<Herb>& list)
         cerr << "File did not open correctly... program terminating." << endl;
         exit(EXIT_FAILURE);
     }
-
-    //something here????
-    //check "in" API for file reading
-    //need to read a string until we reach ';'
 
     getline(in, hName, ';');
 
