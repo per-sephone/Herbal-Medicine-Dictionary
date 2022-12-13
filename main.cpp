@@ -100,23 +100,22 @@ void executeOption(char option, DLL<Herb>& list)
 
 void save(DLL<Herb>& list)
 {
-
+    string fileName = "herbs.txt";
     ofstream out;
-    out.open("herbs.txt");
+    out.open(fileName);
 
     if(!out)
     {
         cerr << "File did not open correctly. Program terminating.";
-        exit(1);
+        exit(EXIT_FAILURE);
     }
 
     shared_ptr<Node<Herb>> current = list.getHead();
 
-
-    while(current != nullptr)
+    while(current)
     {
-        Herb temp = current->getData();
-        out << temp << endl;
+        //Herb temp = current->getData();
+        out << current->getData() << endl;
         current = current->getNext();
     }
 
@@ -124,13 +123,59 @@ void save(DLL<Herb>& list)
 
 }
 
+void loadList(string file, DLL<Herb>& list)
+{
+    ifstream in;
+    string hName;
+    int hDosage;
+    string hUses;
+    string hPrecautions;
+    string hPreparations;
+    Herb anHerb;
+
+    in.open(file);
+    if(!in)
+    {
+        cerr << "File did not open correctly... program terminating." << endl;
+        exit(EXIT_FAILURE);
+    }
+
+    //something here????
+    //check "in" API for file reading
+    //need to read a string until we reach ';'
+
+    getline(in, hName, ';');
+
+    while(!in.eof())
+    {
+
+        in >> hDosage;
+        in.ignore(); 
+        getline(in, hUses, ';');
+        getline(in, hPrecautions, ';');
+        getline(in, hPreparations, '\n');
+
+        anHerb.addNew(hName, hDosage, hUses, hPrecautions, hPreparations);
+
+        //add to DLL
+        list.insert(anHerb);
+
+        getline(in, hName, ';');
+
+
+    }
+    in.close();
+}
+
+
 int main()
 {
     DLL<Herb> herbList;
     char option;
+    string fileName = "herbs.txt";
 
     //load text file here
-
+    loadList(fileName, herbList); 
 
     do {
         option = getOption();
